@@ -7,10 +7,16 @@ The executables ending in 1 are compiled without atomics and thus
 only suitable for single-threaded use (where they get some speedup over the generic version).
 
 Options -h HEADER -n NONCE are self explanatory.
-Non-ascii headers can be provided in hexadecimal with option -x HEXHEADER.
+Non-ascii headers (with nonce) can be provided in hexadecimal with option -x HEXHEADER.
 Add option -r RANGESIZE to search a range of nonces.
 For benching, options -n 255 -r 100 are useful as it gets exactly 188 solutions from 100 runs.
-Finally, option -s shows the solutions.
+Finally, option -s shows the solutions. Combine with -c to print compressed solution.
+
+An example to solve an Equihash-BTG (144,5) block:
+
+```
+./eq14451 -x 0400000008e9694cc2120ec1b5733cc12687b609058eec4f7046a521ad1d1e3049b400003e7420ed6f40659de0305ef9b7ec037f4380ed9848bc1c015691c90aa16ff3930000000000000000000000000000000000000000000000000000000000000000c9310d5874e0001f000000000000000000000000000000010b000000000000000000000000000040 -s -c
+```
 
 My original submission was triggered by seeing how xenoncat's
 "has much of the same ideas as mine" so that making my open sourcing conditional
